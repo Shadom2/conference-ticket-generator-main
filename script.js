@@ -32,33 +32,33 @@ form.addEventListener('submit', (e) => {
   let hasError = false;
 
   if (!avatarFile) {
-    avatarError.textContent = 'Please upload a photo.';
+    avatarError.textContent = 'Por favor sube tu foto';
     avatarInput.classList.add('input-error');
     hasError = true;
   } else if (!['image/jpeg', 'image/png'].includes(avatarFile.type) || avatarFile.size > 512000) {
-    avatarError.textContent = 'File too large. Please upload a JPG/PNG under 500KB.';
+    avatarError.textContent = 'Archivo muy grande. Por favor sube una foto menor a 500kb';
     avatarInput.classList.add('input-error');
     hasError = true;
   }
 
   if (!name) {
-    nameError.textContent = 'Full name is required.';
+    nameError.textContent = 'Requerimos tu nombre.';
     form.fullName.classList.add('input-error');
     hasError = true;
   }
 
   if (!email) {
-    emailError.textContent = 'Email is required.';
+    emailError.textContent = 'Tu email es requerido.';
     form.email.classList.add('input-error');
     hasError = true;
   } else if (!validateEmail(email)) {
-    emailError.textContent = 'Please enter a valid email address.';
+    emailError.textContent = 'Por favor ingresa un email válido.';
     form.email.classList.add('input-error');
     hasError = true;
   }
 
   if (!github) {
-    githubError.textContent = 'GitHub username is required.';
+    githubError.textContent = 'Tu user de GitHub es requerido.';
     form.github.classList.add('input-error');
     hasError = true;
   }
@@ -75,8 +75,8 @@ form.addEventListener('submit', (e) => {
     ticketSection.classList.remove('hidden');
     ticketSection.scrollIntoView({ behavior: 'smooth' });
 
-    form.reset(); // ✅ Vacía el formulario después de generar el ticket
-    clearErrorStyles(); // ✅ Limpia bordes de error después del reset
+    form.reset(); 
+    clearErrorStyles();
   };
   reader.readAsDataURL(avatarFile);
 });
